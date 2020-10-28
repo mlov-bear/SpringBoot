@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo02.Mapper.AccountMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo02.model.Account"/>
+    <select id="findOne" resultMap="BaseResultMap">
+        select * from Account where acardNo=#{acardNo}
+    </select>
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from Account
+    </select>
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into Account
+          (aname,money,acardNo,pwd)
+        values
+          (#{aname},#{money},#{acardNo},#{pwd})
+    </insert>
+    <delete id="delete">
+        delete from Account where acardNo=#{acardNo}
+    </delete>
+
+</mapper>
